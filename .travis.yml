@@ -18,6 +18,7 @@ script:
 cache:
   apt: true
   directories:
+  - ~/.cargo/registry
   - target/debug/deps
   - target/debug/build
 
