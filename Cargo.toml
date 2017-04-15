@@ -1,6 +1,21 @@
 [package]
 name = "rustyblog"
-version = "0.1.0"
+version = "0.0.0"
 authors = ["Arthur Asatryan <biacoder@gmail.com>"]
+description = "Blogging platform written in Rust"
+documentation = "https://docs.rs/rustyblog"
+homepage = "https://github.com/Biacode/rustyblog"
+repository = "https://github.com/Biacode/rustyblog"
+keywords = ["blog", "blogging-platform", "rustyblog", "engine"]
+readme = "README.md"
+license = "Apache-2.0"
+exclude = [
+    ".travis.yml",
+    ".gitignore",
+]
+
+[lib]
+name = "rustyblog"
+path = "src/lib.rs"
 
 [dependencies]
