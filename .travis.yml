@@ -1,5 +1,6 @@
 sudo: false
 language: rust
+cache: cargo
 matrix:
   fast_finish: true
   include:
@@ -10,19 +11,13 @@ matrix:
 before_script:
   - export PGPASSWORD="postgres"
   - psql -c "DROP DATABASE IF EXISTS rustyblog;" -U postgres
-  - psql -c "create database rustyblog;" -U postgres
-  - cargo install diesel_cli
-  - diesel setup --database-url='postgres://postgres:postgres@localhost/rustyblog'
+  - diesel setup
 
 script:
 - cargo test --no-run
 
 cache:
   apt: true
-  directories:
-  - ~/.cargo/registry
-  - target/debug/deps
-  - target/debug/build
 
 addons:
   postgresql: "9.4"
