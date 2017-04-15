@@ -8,8 +8,9 @@ matrix:
 #    - rust: stable
 
 before_script:
-  - psql -c "DROP DATABASE IF EXISTS rustyblog_test;" -U postgres
-  - psql -c "create database rustyblog_test;" -U postgres
+  - export PGPASSWORD="postgres"
+  - cargo install diesel_cli
+  - diesel setup --database-url='postgres://postgres:postgres@localhost/rustyblog_test'
 
 script:
 - cargo test --no-run
@@ -22,8 +23,3 @@ cache:
 
 addons:
   postgresql: "9.4"
-  apt:
-    packages:
-      - libcurl4-openssl-dev
-      - libelf-dev
-      - libdw-dev
