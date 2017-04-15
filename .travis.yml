@@ -7,6 +7,10 @@ matrix:
 #    - rust: beta
 #    - rust: stable
 
+before_script:
+  - psql -c "DROP DATABASE IF EXISTS rustyblog_test;" -U postgres
+  - psql -c "create database rustyblog_test;" -U postgres
+
 script:
 - cargo test --no-run
 
@@ -17,6 +21,7 @@ cache:
   - target/debug/build
 
 addons:
+  postgresql: "9.4"
   apt:
     packages:
       - libcurl4-openssl-dev
