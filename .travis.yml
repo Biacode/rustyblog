@@ -10,7 +10,7 @@ matrix:
 before_script:
   - export PGPASSWORD="postgres"
   - cargo install diesel_cli
-  - diesel setup --database-url='postgres://postgres:postgres@localhost/rustyblog_test'
+  - diesel setup --database-url='postgres://postgres:postgres@localhost/rustyblog'
 
 script:
 - cargo test --no-run
