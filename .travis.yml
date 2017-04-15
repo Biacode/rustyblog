@@ -14,10 +14,7 @@ before_script:
   - diesel setup
 
 script:
-- cargo test --no-run
-
-cache:
-  apt: true
+  - cargo test --no-run
 
 addons:
   postgresql: "9.4"
