@@ -1,4 +1,4 @@
-use super::schema::posts;
+use super::super::schema::posts;
 
 #[derive(Queryable)]
 pub struct Post {
