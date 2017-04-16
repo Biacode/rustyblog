@@ -1,11 +1,13 @@
 sudo: false
 language: rust
 matrix:
+  allow_failures:
+#    - rust: nightly
   fast_finish: true
   include:
-    - rust: nightly
-#    - rust: beta
 #    - rust: stable
+#    - rust: beta
+    - rust: nightly
 
 before_script:
   - export PGPASSWORD="postgres"
