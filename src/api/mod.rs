@@ -1,5 +1,9 @@
-mod rest;
-mod model;
+use super::*;
 
-// re exports
-pub use self::rest::mount;
+mod home;
+
+pub fn mount() {
+    rocket::ignite().mount("/", routes![
+        home::index
+    ]).launch();
+}
